@@ -1,0 +1,15 @@
+[
+  { "name": "timestamp", "type": "TIMESTAMP" },
+  { "name": "latitude", "type": "FLOAT" },
+  { "name": "longitude", "type": "FLOAT" },
+  { "name": "image_url", "type": "STRING" },
+  { "name": "species", "type": "STRING" },
+  { "name": "whale_count", "type": "INTEGER" },
+  { "name": "user_id", "type": "STRING" },
+  { "name": "created_at", "type": "TIMESTAMP" },
+  { "name": "id", "type": "STRING" },
+  { "name": "verification_status", "type": "STRING" },
+  { "name": "source_type", "type": "STRING" },
+  { "name": "confidence", "type": "FLOAT" },
+  { "name": "approval_status", "type": "STRING" }
+]

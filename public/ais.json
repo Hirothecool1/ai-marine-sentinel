@@ -1,0 +1,1602 @@
+[
+  {
+    "id": "338432444",
+    "name": "SD-2002",
+    "latitude": 37.47878,
+    "longitude": -122.86791,
+    "speed": 0.7,
+    "timestamp": 1680418797000
+  },
+  {
+    "id": "538090363",
+    "name": "CAPE TAFT",
+    "latitude": 37.35966,
+    "longitude": -123.21459,
+    "speed": 0.8,
+    "timestamp": 1680418794000
+  },
+  {
+    "id": "366844270",
+    "name": "MILLENNIUM DAWN",
+    "latitude": 37.38157,
+    "longitude": -123.04177,
+    "speed": 6.6,
+    "timestamp": 1680418794000
+  },
+  {
+    "id": "338472563",
+    "name": "APERO",
+    "latitude": 37.98735,
+    "longitude": -122.95456,
+    "speed": 6.8,
+    "timestamp": 1680418788000
+  },
+  {
+    "id": "366798310",
+    "name": "SAN FRANCISCO",
+    "latitude": 37.771,
+    "longitude": -122.69851,
+    "speed": 0.7,
+    "timestamp": 1680418786000
+  },
+  {
+    "id": "368174080",
+    "name": "F/V JACQUELINE L.",
+    "latitude": 37.83349,
+    "longitude": -122.76799,
+    "speed": 3.4,
+    "timestamp": 1680418783000
+  },
+  {
+    "id": "368195460",
+    "name": "HORIZON",
+    "latitude": 37.81243,
+    "longitude": -122.58333,
+    "speed": 4.7,
+    "timestamp": 1680418782000
+  },
+  {
+    "id": "367773810",
+    "name": "ENVOLEE",
+    "latitude": 37.68045,
+    "longitude": -123.02315,
+    "speed": 5.5,
+    "timestamp": 1680418770000
+  },
+  {
+    "id": "338369055",
+    "name": "KENOGAMI",
+    "latitude": 37.9999,
+    "longitude": -122.97486,
+    "speed": 0.1,
+    "timestamp": 1680418768000
+  },
+  {
+    "id": "370587000",
+    "name": "HENRY HUDSON BRIDGE",
+    "latitude": 37.84909,
+    "longitude": -122.86071,
+    "speed": 12.8,
+    "timestamp": 1680418762000
+  },
+  {
+    "id": "338184357",
+    "name": "SHAMAN",
+    "latitude": 37.60457,
+    "longitude": -122.55513,
+    "speed": 6.4,
+    "timestamp": 1680418753000
+  },
+  {
+    "id": "368198120",
+    "name": "GYPSY",
+    "latitude": 37.80912,
+    "longitude": -122.58992,
+    "speed": 2.3,
+    "timestamp": 1680418748000
+  },
+  {
+    "id": "354421000",
+    "name": "KEN MEI",
+    "latitude": 37.56392,
+    "longitude": -122.66352,
+    "speed": 8.4,
+    "timestamp": 1680418736000
+  },
+  {
+    "id": "367362010",
+    "name": "CORPUS CHRISTI",
+    "latitude": 37.64597,
+    "longitude": -122.90725,
+    "speed": 10,
+    "timestamp": 1680418730000
+  },
+  {
+    "id": "338431562",
+    "name": "SD-2012",
+    "latitude": 37.37784,
+    "longitude": -122.78059,
+    "speed": 3.4,
+    "timestamp": 1680418730000
+  },
+  {
+    "id": "367441720",
+    "name": "RESOLUTE",
+    "latitude": 38.12929,
+    "longitude": -123.16115,
+    "speed": 7.2,
+    "timestamp": 1680418722000
+  },
+  {
+    "id": "338357858",
+    "name": "MISS MADDI",
+    "latitude": 38.32885,
+    "longitude": -123.05807,
+    "speed": 0,
+    "timestamp": 1680418636000
+  },
+  {
+    "id": "366951730",
+    "name": "JEFFREY M",
+    "latitude": 37.2877,
+    "longitude": -122.62852,
+    "speed": 10.5,
+    "timestamp": 1680418469000
+  },
+  {
+    "id": "338041813",
+    "name": "ANNETTA",
+    "latitude": 37.45838,
+    "longitude": -122.53129,
+    "speed": 28.8,
+    "timestamp": 1680406818000
+  },
+  {
+    "id": "338141808",
+    "name": "FISHING LUHRS",
+    "latitude": 37.49293,
+    "longitude": -122.52955,
+    "speed": 9.8,
+    "timestamp": 1680401436000
+  },
+  {
+    "id": "367740790",
+    "name": "JAKE SHEARER",
+    "latitude": 38.16106,
+    "longitude": -123.75976,
+    "speed": 8.8,
+    "timestamp": 1680397545000
+  },
+  {
+    "id": "338470274",
+    "name": "LA VALENA",
+    "latitude": 37.79528,
+    "longitude": -122.53081,
+    "speed": 5,
+    "timestamp": 1680397409000
+  },
+  {
+    "id": "357011000",
+    "name": "GRAND WINNER 1",
+    "latitude": 38.14441,
+    "longitude": -123.75674,
+    "speed": 11.2,
+    "timestamp": 1680392969000
+  },
+  {
+    "id": "367008010",
+    "name": "ROLAND BRUSCO SR",
+    "latitude": 37.81135,
+    "longitude": -122.52978,
+    "speed": 7.5,
+    "timestamp": 1680388701000
+  },
+  {
+    "id": "338221000",
+    "name": "OVERSEAS BOSTON",
+    "latitude": 37.73727,
+    "longitude": -123.75882,
+    "speed": 14.9,
+    "timestamp": 1680382072000
+  },
+  {
+    "id": "353423000",
+    "name": "GERAKAS",
+    "latitude": 37.7957,
+    "longitude": -122.52937,
+    "speed": 11.8,
+    "timestamp": 1680378613000
+  },
+  {
+    "id": "369540000",
+    "name": "POLAR RESOLUTION",
+    "latitude": 37.79343,
+    "longitude": -122.53323,
+    "speed": 14,
+    "timestamp": 1680375799000
+  },
+  {
+    "id": "215125000",
+    "name": "CMA CGM A. LINCOLN",
+    "latitude": 37.49011,
+    "longitude": -123.75553,
+    "speed": 11.7,
+    "timestamp": 1680367833000
+  },
+  {
+    "id": "338465527",
+    "name": "Unknown Vessel (338465527)",
+    "latitude": 37.34559,
+    "longitude": -123.7583,
+    "speed": 0.5,
+    "timestamp": 1680364114000
+  },
+  {
+    "id": "538008944",
+    "name": "IONIC ARIADNE",
+    "latitude": 37.28717,
+    "longitude": -123.32796,
+    "speed": 0.7,
+    "timestamp": 1680362720000
+  },
+  {
+    "id": "367786750",
+    "name": "FLOATING STONES",
+    "latitude": 38.70253,
+    "longitude": -123.67638,
+    "speed": 7.1,
+    "timestamp": 1680353900000
+  },
+  {
+    "id": "338441704",
+    "name": "Unknown Vessel (338441704)",
+    "latitude": 37.31745,
+    "longitude": -123.76006,
+    "speed": 1.2,
+    "timestamp": 1680350122000
+  },
+  {
+    "id": "477244400",
+    "name": "TOP ELEGANCE",
+    "latitude": 37.29009,
+    "longitude": -122.72937,
+    "speed": 13,
+    "timestamp": 1680350055000
+  },
+  {
+    "id": "210469000",
+    "name": "LITO",
+    "latitude": 37.52193,
+    "longitude": -123.75938,
+    "speed": 11.6,
+    "timestamp": 1680348421000
+  },
+  {
+    "id": "431009000",
+    "name": "CENTURY HIGHWAYGREEN",
+    "latitude": 37.79376,
+    "longitude": -122.53186,
+    "speed": 15.9,
+    "timestamp": 1680347462000
+  },
+  {
+    "id": "219210000",
+    "name": "MAERSK ESSEN",
+    "latitude": 37.79534,
+    "longitude": -122.53159,
+    "speed": 17.7,
+    "timestamp": 1680346230000
+  },
+  {
+    "id": "303656000",
+    "name": "ALASKAN LEGEND",
+    "latitude": 37.7943,
+    "longitude": -122.53141,
+    "speed": 12.9,
+    "timestamp": 1680342261000
+  },
+  {
+    "id": "367304990",
+    "name": "COCHISE",
+    "latitude": 38.37753,
+    "longitude": -123.75847,
+    "speed": 9.1,
+    "timestamp": 1680341253000
+  },
+  {
+    "id": "367311660",
+    "name": "F V LONG GONE",
+    "latitude": 38.32816,
+    "longitude": -123.05716,
+    "speed": 0,
+    "timestamp": 1680339592000
+  },
+  {
+    "id": "338205367",
+    "name": "KENDRA JEAN",
+    "latitude": 37.81348,
+    "longitude": -122.53121,
+    "speed": 10.9,
+    "timestamp": 1680337972000
+  },
+  {
+    "id": "374353000",
+    "name": "COSMIC ACE",
+    "latitude": 37.68883,
+    "longitude": -123.758,
+    "speed": 10.9,
+    "timestamp": 1680331893000
+  },
+  {
+    "id": "338157903",
+    "name": "MUSCULUS",
+    "latitude": 37.4721,
+    "longitude": -122.5331,
+    "speed": 25.5,
+    "timestamp": 1680331786000
+  },
+  {
+    "id": "338186925",
+    "name": "TYEE",
+    "latitude": 37.71794,
+    "longitude": -122.53322,
+    "speed": 1.6,
+    "timestamp": 1680330666000
+  },
+  {
+    "id": "338315017",
+    "name": "PALE HORSE",
+    "latitude": 37.79934,
+    "longitude": -122.56494,
+    "speed": 5.7,
+    "timestamp": 1680327570000
+  },
+  {
+    "id": "255806029",
+    "name": "MSC NITYA B",
+    "latitude": 37.28788,
+    "longitude": -122.72404,
+    "speed": 7.6,
+    "timestamp": 1680327467000
+  },
+  {
+    "id": "338452663",
+    "name": "PULMERIA",
+    "latitude": 37.79604,
+    "longitude": -122.52927,
+    "speed": 2.2,
+    "timestamp": 1680327257000
+  },
+  {
+    "id": "338133868",
+    "name": "TICKET II",
+    "latitude": 37.77433,
+    "longitude": -122.53056,
+    "speed": 2.9,
+    "timestamp": 1680326121000
+  },
+  {
+    "id": "368039670",
+    "name": "RESA",
+    "latitude": 37.78351,
+    "longitude": -122.52951,
+    "speed": 3.6,
+    "timestamp": 1680326044000
+  },
+  {
+    "id": "255806502",
+    "name": "MSC SIYA B",
+    "latitude": 37.79509,
+    "longitude": -122.5314,
+    "speed": 11.3,
+    "timestamp": 1680323122000
+  },
+  {
+    "id": "367103580",
+    "name": "LULU",
+    "latitude": 37.41966,
+    "longitude": -122.63573,
+    "speed": 5,
+    "timestamp": 1680323038000
+  },
+  {
+    "id": "338306941",
+    "name": "PILLAR POINT ALMAR",
+    "latitude": 37.46009,
+    "longitude": -122.533,
+    "speed": 25.7,
+    "timestamp": 1680322574000
+  },
+  {
+    "id": "338365894",
+    "name": "SAILDRONE SUPPORT 1",
+    "latitude": 37.78813,
+    "longitude": -122.52966,
+    "speed": 12.5,
+    "timestamp": 1680317788000
+  },
+  {
+    "id": "338366846",
+    "name": "GRADY 228",
+    "latitude": 37.45612,
+    "longitude": -122.53572,
+    "speed": 31,
+    "timestamp": 1680316817000
+  },
+  {
+    "id": "636021578",
+    "name": "YM TRANQUILITY",
+    "latitude": 37.28822,
+    "longitude": -123.5654,
+    "speed": 10.9,
+    "timestamp": 1680315457000
+  },
+  {
+    "id": "338205971",
+    "name": "PACIFIC BULLY",
+    "latitude": 37.77653,
+    "longitude": -122.52931,
+    "speed": 3.9,
+    "timestamp": 1680315387000
+  },
+  {
+    "id": "311000902",
+    "name": "APOLLO VOYAGER",
+    "latitude": 37.29003,
+    "longitude": -123.22303,
+    "speed": 11.7,
+    "timestamp": 1680312976000
+  },
+  {
+    "id": "366749490",
+    "name": "RED ROOSTER III",
+    "latitude": 38.70118,
+    "longitude": -123.64879,
+    "speed": 10.1,
+    "timestamp": 1680312421000
+  },
+  {
+    "id": "338441706",
+    "name": "Unknown Vessel (338441706)",
+    "latitude": 37.52178,
+    "longitude": -123.74943,
+    "speed": 1.7,
+    "timestamp": 1680308021000
+  },
+  {
+    "id": "370407000",
+    "name": "MOL CONTINUITY",
+    "latitude": 38.30444,
+    "longitude": -123.75523,
+    "speed": 14.8,
+    "timestamp": 1680305774000
+  },
+  {
+    "id": "366808340",
+    "name": "CALIFORNIA",
+    "latitude": 37.79694,
+    "longitude": -122.53107,
+    "speed": 13.3,
+    "timestamp": 1680302282000
+  },
+  {
+    "id": "368009610",
+    "name": "TAMARA",
+    "latitude": 37.28927,
+    "longitude": -122.92661,
+    "speed": 11.2,
+    "timestamp": 1680301515000
+  },
+  {
+    "id": "367463540",
+    "name": "AQUA LEO",
+    "latitude": 37.49545,
+    "longitude": -122.53142,
+    "speed": 7,
+    "timestamp": 1680299939000
+  },
+  {
+    "id": "338850000",
+    "name": "CG WAESCHE",
+    "latitude": 37.79352,
+    "longitude": -122.53217,
+    "speed": 15.7,
+    "timestamp": 1680299585000
+  },
+  {
+    "id": "367067110",
+    "name": "POLAR ENTERPRISE",
+    "latitude": 37.79395,
+    "longitude": -122.53075,
+    "speed": 9.7,
+    "timestamp": 1680297334000
+  },
+  {
+    "id": "311000112",
+    "name": "POLARIS VOYAGER",
+    "latitude": 37.77931,
+    "longitude": -122.58141,
+    "speed": 8.9,
+    "timestamp": 1680295224000
+  },
+  {
+    "id": "941201644",
+    "name": "Unknown Vessel (941201644)",
+    "latitude": 37.34252,
+    "longitude": -122.95931,
+    "speed": 1,
+    "timestamp": 1680292231000
+  },
+  {
+    "id": "416468000",
+    "name": "YM UNIFORMITY",
+    "latitude": 37.79551,
+    "longitude": -122.532,
+    "speed": 17.6,
+    "timestamp": 1680286793000
+  },
+  {
+    "id": "941201676",
+    "name": "Unknown Vessel (941201676)",
+    "latitude": 37.39096,
+    "longitude": -122.91869,
+    "speed": 0.7,
+    "timestamp": 1680279872000
+  },
+  {
+    "id": "367515670",
+    "name": "BLACK HAWK",
+    "latitude": 38.28421,
+    "longitude": -123.75988,
+    "speed": 7.8,
+    "timestamp": 1680278544000
+  },
+  {
+    "id": "315804704",
+    "name": "Unknown Vessel (315804704)",
+    "latitude": 37.56685,
+    "longitude": -122.99354,
+    "speed": 9.8,
+    "timestamp": 1680278221000
+  },
+  {
+    "id": "309822000",
+    "name": "HON HENRY JACKMAN",
+    "latitude": 37.28872,
+    "longitude": -122.72538,
+    "speed": 14.3,
+    "timestamp": 1680278031000
+  },
+  {
+    "id": "941201651",
+    "name": "Unknown Vessel (941201651)",
+    "latitude": 37.40328,
+    "longitude": -122.96656,
+    "speed": 0.4,
+    "timestamp": 1680274715000
+  },
+  {
+    "id": "538004532",
+    "name": "STI AMBER",
+    "latitude": 38.39562,
+    "longitude": -123.7595,
+    "speed": 13.2,
+    "timestamp": 1680262544000
+  },
+  {
+    "id": "538008861",
+    "name": "SEAWAYS GUAYAQUIL",
+    "latitude": 37.79458,
+    "longitude": -122.53028,
+    "speed": 13.5,
+    "timestamp": 1680256412000
+  },
+  {
+    "id": "636021005",
+    "name": "MATSON MOLOKAI",
+    "latitude": 37.62643,
+    "longitude": -123.76016,
+    "speed": 10.4,
+    "timestamp": 1680249680000
+  },
+  {
+    "id": "249409000",
+    "name": "CELEBRITY SOLSTICE",
+    "latitude": 37.29035,
+    "longitude": -122.72391,
+    "speed": 18.3,
+    "timestamp": 1680249541000
+  },
+  {
+    "id": "338070732",
+    "name": "PELICAN",
+    "latitude": 38.32873,
+    "longitude": -123.05796,
+    "speed": 0,
+    "timestamp": 1680240199000
+  },
+  {
+    "id": "338237438",
+    "name": "NOBILLIE",
+    "latitude": 37.69259,
+    "longitude": -122.76466,
+    "speed": 0,
+    "timestamp": 1680239316000
+  },
+  {
+    "id": "367045000",
+    "name": "F/V NEW DAY",
+    "latitude": 37.50647,
+    "longitude": -122.53049,
+    "speed": 5.8,
+    "timestamp": 1680237840000
+  },
+  {
+    "id": "338132401",
+    "name": "LOCH FYNE",
+    "latitude": 38.33003,
+    "longitude": -123.05761,
+    "speed": 0.1,
+    "timestamp": 1680237021000
+  },
+  {
+    "id": "367776350",
+    "name": "BLUE PEARL",
+    "latitude": 38.70317,
+    "longitude": -123.56024,
+    "speed": 6.4,
+    "timestamp": 1680229270000
+  },
+  {
+    "id": "366962000",
+    "name": "MISSISSIPPI VOYAGER",
+    "latitude": 37.28967,
+    "longitude": -123.1,
+    "speed": 10.8,
+    "timestamp": 1680226841000
+  },
+  {
+    "id": "369567000",
+    "name": "SEA RELIANCE",
+    "latitude": 37.79743,
+    "longitude": -122.53201,
+    "speed": 9.2,
+    "timestamp": 1680222789000
+  },
+  {
+    "id": "338155794",
+    "name": "SONOMA SHERIFF BOAT2",
+    "latitude": 38.51365,
+    "longitude": -122.80267,
+    "speed": 0,
+    "timestamp": 1680222009000
+  },
+  {
+    "id": "338362803",
+    "name": "FISHY BIZ",
+    "latitude": 37.48364,
+    "longitude": -122.52963,
+    "speed": 7.7,
+    "timestamp": 1680219853000
+  },
+  {
+    "id": "368045710",
+    "name": "LUTHER",
+    "latitude": 37.28808,
+    "longitude": -122.72793,
+    "speed": 13,
+    "timestamp": 1680215764000
+  },
+  {
+    "id": "232018900",
+    "name": "HYUNDAI NEPTUNE",
+    "latitude": 37.79471,
+    "longitude": -122.53192,
+    "speed": 16.9,
+    "timestamp": 1680208387000
+  },
+  {
+    "id": "431868000",
+    "name": "FREEDOM ACE",
+    "latitude": 38.54631,
+    "longitude": -123.75979,
+    "speed": 9.9,
+    "timestamp": 1680207063000
+  },
+  {
+    "id": "368162930",
+    "name": "ARIANNA ROSE",
+    "latitude": 37.81434,
+    "longitude": -122.5355,
+    "speed": 9.7,
+    "timestamp": 1680206459000
+  },
+  {
+    "id": "338121000",
+    "name": "LURLINE",
+    "latitude": 37.28761,
+    "longitude": -122.72919,
+    "speed": 19.1,
+    "timestamp": 1680204501000
+  },
+  {
+    "id": "352898799",
+    "name": "FUJI HARMONY",
+    "latitude": 37.79497,
+    "longitude": -122.52974,
+    "speed": 11.4,
+    "timestamp": 1680202280000
+  },
+  {
+    "id": "477177400",
+    "name": "DARLING RIVER",
+    "latitude": 37.28962,
+    "longitude": -123.4851,
+    "speed": 13.4,
+    "timestamp": 1680199817000
+  },
+  {
+    "id": "563101600",
+    "name": "MAERSK RUBICON",
+    "latitude": 38.34505,
+    "longitude": -123.74237,
+    "speed": 9.9,
+    "timestamp": 1680193565000
+  },
+  {
+    "id": "303668000",
+    "name": "GULF RELIANCE",
+    "latitude": 37.80069,
+    "longitude": -123.75796,
+    "speed": 10.1,
+    "timestamp": 1680192642000
+  },
+  {
+    "id": "338446000",
+    "name": "SEABULK NEBRASKA",
+    "latitude": 37.74097,
+    "longitude": -123.76006,
+    "speed": 12.8,
+    "timestamp": 1680184493000
+  },
+  {
+    "id": "538007465",
+    "name": "SFL SABINE",
+    "latitude": 37.28828,
+    "longitude": -123.15035,
+    "speed": 9.6,
+    "timestamp": 1680181725000
+  },
+  {
+    "id": "563096700",
+    "name": "EVER SAFETY",
+    "latitude": 38.24817,
+    "longitude": -123.75835,
+    "speed": 14,
+    "timestamp": 1680179243000
+  },
+  {
+    "id": "636022035",
+    "name": "NEW KEY",
+    "latitude": 37.28808,
+    "longitude": -123.63194,
+    "speed": 12.8,
+    "timestamp": 1680178228000
+  },
+  {
+    "id": "311000111",
+    "name": "PEGASUS VOYAGER",
+    "latitude": 37.28754,
+    "longitude": -123.01523,
+    "speed": 10.6,
+    "timestamp": 1680177337000
+  },
+  {
+    "id": "210362000",
+    "name": "SANTIAGO I",
+    "latitude": 38.25507,
+    "longitude": -123.7592,
+    "speed": 11.2,
+    "timestamp": 1680177085000
+  },
+  {
+    "id": "369355000",
+    "name": "GEORGE III",
+    "latitude": 37.29244,
+    "longitude": -122.72073,
+    "speed": 19.8,
+    "timestamp": 1680174400000
+  },
+  {
+    "id": "310812000",
+    "name": "DISCOVERY PRINCESS",
+    "latitude": 37.28737,
+    "longitude": -122.73047,
+    "speed": 13.9,
+    "timestamp": 1680172836000
+  },
+  {
+    "id": "565884000",
+    "name": "MTM NEW ORLEANS",
+    "latitude": 37.79407,
+    "longitude": -122.53264,
+    "speed": 11.4,
+    "timestamp": 1680172812000
+  },
+  {
+    "id": "374858000",
+    "name": "ONE AQUILA",
+    "latitude": 37.52306,
+    "longitude": -123.75714,
+    "speed": 11,
+    "timestamp": 1680169186000
+  },
+  {
+    "id": "367628660",
+    "name": "CAPT DAVID I LYON",
+    "latitude": 37.47028,
+    "longitude": -123.75861,
+    "speed": 12.9,
+    "timestamp": 1680166655000
+  },
+  {
+    "id": "477958900",
+    "name": "MAERSK AVON",
+    "latitude": 37.28942,
+    "longitude": -122.72348,
+    "speed": 16.2,
+    "timestamp": 1680147461000
+  },
+  {
+    "id": "248672000",
+    "name": "AMARTHEA",
+    "latitude": 37.2876,
+    "longitude": -123.03257,
+    "speed": 13.8,
+    "timestamp": 1680145564000
+  },
+  {
+    "id": "367426120",
+    "name": "DRAKE",
+    "latitude": 37.79803,
+    "longitude": -122.52995,
+    "speed": 8.8,
+    "timestamp": 1680142946000
+  },
+  {
+    "id": "338616000",
+    "name": "DUBLIN SEA",
+    "latitude": 37.79548,
+    "longitude": -122.53134,
+    "speed": 9.4,
+    "timestamp": 1680130548000
+  },
+  {
+    "id": "367721220",
+    "name": "OCEAN GLORY",
+    "latitude": 37.79537,
+    "longitude": -122.53259,
+    "speed": 11,
+    "timestamp": 1680128956000
+  },
+  {
+    "id": "368295000",
+    "name": "OVERSEAS TAMPA",
+    "latitude": 37.79365,
+    "longitude": -122.53376,
+    "speed": 12.5,
+    "timestamp": 1680125934000
+  },
+  {
+    "id": "367486860",
+    "name": "CITY LIGHTS",
+    "latitude": 37.7955,
+    "longitude": -122.53151,
+    "speed": 6,
+    "timestamp": 1680124318000
+  },
+  {
+    "id": "219199000",
+    "name": "MAERSK EDMONTON",
+    "latitude": 38.4059,
+    "longitude": -123.75749,
+    "speed": 8.9,
+    "timestamp": 1680112531000
+  },
+  {
+    "id": "366892350",
+    "name": "NAT GEO SEA BIRD",
+    "latitude": 38.46922,
+    "longitude": -123.75864,
+    "speed": 8.4,
+    "timestamp": 1680078654000
+  },
+  {
+    "id": "235335000",
+    "name": "EVER EAGLE",
+    "latitude": 37.71755,
+    "longitude": -123.75826,
+    "speed": 15.6,
+    "timestamp": 1680078518000
+  },
+  {
+    "id": "273350070",
+    "name": "MRS-261",
+    "latitude": 37.97547,
+    "longitude": -123.04481,
+    "speed": 20,
+    "timestamp": 1680071983000
+  },
+  {
+    "id": "367153070",
+    "name": "MIKIONA",
+    "latitude": 37.28761,
+    "longitude": -122.72631,
+    "speed": 6.1,
+    "timestamp": 1680066071000
+  },
+  {
+    "id": "235076283",
+    "name": "PARAMOUNT HYDRA",
+    "latitude": 37.28727,
+    "longitude": -122.85253,
+    "speed": 3,
+    "timestamp": 1680062885000
+  },
+  {
+    "id": "368020980",
+    "name": "ASSATEAGUE",
+    "latitude": 37.7951,
+    "longitude": -122.53084,
+    "speed": 6,
+    "timestamp": 1680062472000
+  },
+  {
+    "id": "338238025",
+    "name": "KOMFORTABLE KILL",
+    "latitude": 38.37195,
+    "longitude": -122.7142,
+    "speed": 102.3,
+    "timestamp": 1680059086000
+  },
+  {
+    "id": "636018807",
+    "name": "DEBUSSY",
+    "latitude": 38.59468,
+    "longitude": -123.75664,
+    "speed": 17.3,
+    "timestamp": 1680050083000
+  },
+  {
+    "id": "366576000",
+    "name": "R J PFEIFFER",
+    "latitude": 37.29007,
+    "longitude": -123.59404,
+    "speed": 15.7,
+    "timestamp": 1680046661000
+  },
+  {
+    "id": "371449000",
+    "name": "NYK RIGEL",
+    "latitude": 37.28999,
+    "longitude": -122.71935,
+    "speed": 11.2,
+    "timestamp": 1680040258000
+  },
+  {
+    "id": "563078600",
+    "name": "BLC SECOND",
+    "latitude": 37.28822,
+    "longitude": -123.45369,
+    "speed": 8.9,
+    "timestamp": 1680031895000
+  },
+  {
+    "id": "431314000",
+    "name": "LIBRA LEADER",
+    "latitude": 37.28962,
+    "longitude": -123.56494,
+    "speed": 16.1,
+    "timestamp": 1680022935000
+  },
+  {
+    "id": "338227000",
+    "name": "OHIO",
+    "latitude": 37.3733,
+    "longitude": -123.75898,
+    "speed": 13.8,
+    "timestamp": 1680017867000
+  },
+  {
+    "id": "564585000",
+    "name": "HANYANG",
+    "latitude": 38.3067,
+    "longitude": -123.7584,
+    "speed": 13.1,
+    "timestamp": 1680014781000
+  },
+  {
+    "id": "369527000",
+    "name": "GREEN LAKE",
+    "latitude": 37.28903,
+    "longitude": -122.72786,
+    "speed": 13.2,
+    "timestamp": 1680006578000
+  },
+  {
+    "id": "368004000",
+    "name": "BRENTON REEF",
+    "latitude": 37.79428,
+    "longitude": -122.53259,
+    "speed": 12.8,
+    "timestamp": 1680003990000
+  },
+  {
+    "id": "310661000",
+    "name": "ROYAL PRINCESS",
+    "latitude": 37.2883,
+    "longitude": -123.35443,
+    "speed": 17.4,
+    "timestamp": 1680002856000
+  },
+  {
+    "id": "538009497",
+    "name": "BALTIC SPIRIT",
+    "latitude": 37.89517,
+    "longitude": -123.75893,
+    "speed": 11.7,
+    "timestamp": 1679999111000
+  },
+  {
+    "id": "338396218",
+    "name": "BAY BREEZE",
+    "latitude": 37.49927,
+    "longitude": -122.53157,
+    "speed": 7.9,
+    "timestamp": 1679995289000
+  },
+  {
+    "id": "367791220",
+    "name": "MOLI",
+    "latitude": 37.80703,
+    "longitude": -122.52995,
+    "speed": 6.3,
+    "timestamp": 1679987302000
+  },
+  {
+    "id": "370885000",
+    "name": "IRIS SKY",
+    "latitude": 37.29053,
+    "longitude": -123.64705,
+    "speed": 13.7,
+    "timestamp": 1679985044000
+  },
+  {
+    "id": "367105730",
+    "name": "SANCTUARY",
+    "latitude": 37.3565,
+    "longitude": -122.52983,
+    "speed": 102.3,
+    "timestamp": 1679978238000
+  },
+  {
+    "id": "338459795",
+    "name": "NUESTRA",
+    "latitude": 37.45711,
+    "longitude": -122.52978,
+    "speed": 24.2,
+    "timestamp": 1679966550000
+  },
+  {
+    "id": "319115500",
+    "name": "MANGUSTA",
+    "latitude": 37.36213,
+    "longitude": -122.53044,
+    "speed": 17.6,
+    "timestamp": 1679962593000
+  },
+  {
+    "id": "215159000",
+    "name": "CMA CGM SWORDFISH",
+    "latitude": 37.37706,
+    "longitude": -123.75312,
+    "speed": 18.5,
+    "timestamp": 1679954595000
+  },
+  {
+    "id": "538009386",
+    "name": "BLUE BALESTIER",
+    "latitude": 37.79432,
+    "longitude": -122.53192,
+    "speed": 10.9,
+    "timestamp": 1679948111000
+  },
+  {
+    "id": "566829000",
+    "name": "HUPEH",
+    "latitude": 37.79416,
+    "longitude": -122.5303,
+    "speed": 11.5,
+    "timestamp": 1679947285000
+  },
+  {
+    "id": "352001920",
+    "name": "SILVER SKY",
+    "latitude": 37.63042,
+    "longitude": -123.75772,
+    "speed": 12.5,
+    "timestamp": 1679945206000
+  },
+  {
+    "id": "367578740",
+    "name": "APL BELGIUM",
+    "latitude": 38.19645,
+    "longitude": -123.7557,
+    "speed": 15.7,
+    "timestamp": 1679928241000
+  },
+  {
+    "id": "636015659",
+    "name": "KOTA EKSPRES",
+    "latitude": 37.29057,
+    "longitude": -123.0966,
+    "speed": 13.3,
+    "timestamp": 1679923687000
+  },
+  {
+    "id": "368060190",
+    "name": "P/V_GOLDEN_GATE",
+    "latitude": 37.79177,
+    "longitude": -122.53078,
+    "speed": 20.8,
+    "timestamp": 1679923304000
+  },
+  {
+    "id": "244830547",
+    "name": "KONINGSDAM",
+    "latitude": 38.3122,
+    "longitude": -123.76003,
+    "speed": 19.7,
+    "timestamp": 1679920652000
+  },
+  {
+    "id": "369142000",
+    "name": "TEXAS VOYAGER",
+    "latitude": 37.28769,
+    "longitude": -123.11892,
+    "speed": 11.5,
+    "timestamp": 1679915571000
+  },
+  {
+    "id": "366451000",
+    "name": "GEM STATE",
+    "latitude": 37.53117,
+    "longitude": -123.75311,
+    "speed": 16.5,
+    "timestamp": 1679913367000
+  },
+  {
+    "id": "367505960",
+    "name": "COCONUT",
+    "latitude": 38.25792,
+    "longitude": -123.50979,
+    "speed": 7.8,
+    "timestamp": 1679907475000
+  },
+  {
+    "id": "367161940",
+    "name": "KATHERINE",
+    "latitude": 37.28843,
+    "longitude": -122.62225,
+    "speed": 7.6,
+    "timestamp": 1679905606000
+  },
+  {
+    "id": "249217000",
+    "name": "KNOSSOS",
+    "latitude": 38.12147,
+    "longitude": -123.75909,
+    "speed": 9.2,
+    "timestamp": 1679904777000
+  },
+  {
+    "id": "338402419",
+    "name": "NIGHT RUNNER",
+    "latitude": 37.48252,
+    "longitude": -122.52926,
+    "speed": 8.7,
+    "timestamp": 1679903452000
+  },
+  {
+    "id": "338389484",
+    "name": "WINGMAN 5",
+    "latitude": 37.28997,
+    "longitude": -122.65982,
+    "speed": 7.8,
+    "timestamp": 1679902719000
+  },
+  {
+    "id": "368231760",
+    "name": "BETTER TOGETHER",
+    "latitude": 37.80829,
+    "longitude": -122.53096,
+    "speed": 7,
+    "timestamp": 1679898211000
+  },
+  {
+    "id": "338207826",
+    "name": "ALEGRIA",
+    "latitude": 37.81006,
+    "longitude": -122.53092,
+    "speed": 5.6,
+    "timestamp": 1679894141000
+  },
+  {
+    "id": "338500000",
+    "name": "EAGLE BAY",
+    "latitude": 37.55764,
+    "longitude": -123.75399,
+    "speed": 14.4,
+    "timestamp": 1679887013000
+  },
+  {
+    "id": "227722490",
+    "name": "CHANGABANG SOLOSAILR",
+    "latitude": 37.46382,
+    "longitude": -122.53012,
+    "speed": 5.5,
+    "timestamp": 1679881987000
+  },
+  {
+    "id": "338358313",
+    "name": "DEEP BLUE",
+    "latitude": 37.80531,
+    "longitude": -122.5305,
+    "speed": 1.8,
+    "timestamp": 1679879570000
+  },
+  {
+    "id": "369322000",
+    "name": "CAPE ANN",
+    "latitude": 38.6133,
+    "longitude": -123.75883,
+    "speed": 7.6,
+    "timestamp": 1679876889000
+  },
+  {
+    "id": "235093618",
+    "name": "EVER LASTING",
+    "latitude": 38.46934,
+    "longitude": -123.75613,
+    "speed": 18.4,
+    "timestamp": 1679873687000
+  },
+  {
+    "id": "369042000",
+    "name": "AMERICAN FREEDOM",
+    "latitude": 37.29742,
+    "longitude": -123.75859,
+    "speed": 11.6,
+    "timestamp": 1679871208000
+  },
+  {
+    "id": "563172700",
+    "name": "WAN HAI A08",
+    "latitude": 37.35071,
+    "longitude": -123.75984,
+    "speed": 15.9,
+    "timestamp": 1679869837000
+  },
+  {
+    "id": "538003729",
+    "name": "MOL MAJESTY",
+    "latitude": 37.2876,
+    "longitude": -123.7075,
+    "speed": 12.7,
+    "timestamp": 1679863779000
+  },
+  {
+    "id": "354886000",
+    "name": "COSCO EUROPE",
+    "latitude": 37.66465,
+    "longitude": -123.75867,
+    "speed": 16.6,
+    "timestamp": 1679861086000
+  },
+  {
+    "id": "338066000",
+    "name": "AURORA",
+    "latitude": 37.8037,
+    "longitude": -123.75701,
+    "speed": 5.1,
+    "timestamp": 1679858996000
+  },
+  {
+    "id": "369037000",
+    "name": "TEXAS",
+    "latitude": 37.28872,
+    "longitude": -123.50654,
+    "speed": 14.3,
+    "timestamp": 1679854557000
+  },
+  {
+    "id": "548533000",
+    "name": "TAIKOO TRADER",
+    "latitude": 37.79438,
+    "longitude": -122.53078,
+    "speed": 12,
+    "timestamp": 1679853675000
+  },
+  {
+    "id": "354739000",
+    "name": "CARMEL",
+    "latitude": 37.28925,
+    "longitude": -123.25273,
+    "speed": 13.9,
+    "timestamp": 1679844838000
+  },
+  {
+    "id": "477848700",
+    "name": "CSCL EAST CHINA SEA",
+    "latitude": 38.16529,
+    "longitude": -123.75847,
+    "speed": 16.1,
+    "timestamp": 1679840934000
+  },
+  {
+    "id": "311000421",
+    "name": "CSL FRONTIER",
+    "latitude": 37.28905,
+    "longitude": -122.72826,
+    "speed": 13.5,
+    "timestamp": 1679820092000
+  },
+  {
+    "id": "367733020",
+    "name": "ST KRISTINE",
+    "latitude": 38.32922,
+    "longitude": -123.05643,
+    "speed": 0.1,
+    "timestamp": 1679813379000
+  },
+  {
+    "id": "219027838",
+    "name": "TORM THUNDER",
+    "latitude": 37.28727,
+    "longitude": -123.34759,
+    "speed": 13.4,
+    "timestamp": 1679795677000
+  },
+  {
+    "id": "357494000",
+    "name": "OCEAN VICTORIA",
+    "latitude": 37.7942,
+    "longitude": -122.5296,
+    "speed": 9.8,
+    "timestamp": 1679787436000
+  },
+  {
+    "id": "248923000",
+    "name": "TORRENS",
+    "latitude": 37.59057,
+    "longitude": -123.76018,
+    "speed": 11,
+    "timestamp": 1679777442000
+  },
+  {
+    "id": "636015174",
+    "name": "AQUALIBERTY",
+    "latitude": 37.28908,
+    "longitude": -123.66436,
+    "speed": 10.9,
+    "timestamp": 1679775388000
+  },
+  {
+    "id": "477280900",
+    "name": "PORT PEGASUS",
+    "latitude": 37.79712,
+    "longitude": -122.52958,
+    "speed": 12.7,
+    "timestamp": 1679761541000
+  },
+  {
+    "id": "372218000",
+    "name": "NYK VEGA",
+    "latitude": 38.36551,
+    "longitude": -123.7552,
+    "speed": 13,
+    "timestamp": 1679754670000
+  },
+  {
+    "id": "440260000",
+    "name": "GLOVIS SPRING",
+    "latitude": 38.26439,
+    "longitude": -123.75986,
+    "speed": 15.5,
+    "timestamp": 1679754364000
+  },
+  {
+    "id": "357194000",
+    "name": "KEN UN",
+    "latitude": 38.67609,
+    "longitude": -123.75931,
+    "speed": 9,
+    "timestamp": 1679751676000
+  },
+  {
+    "id": "367006030",
+    "name": "BARBARA LIND",
+    "latitude": 38.14608,
+    "longitude": -122.52951,
+    "speed": 7.1,
+    "timestamp": 1679724353000
+  },
+  {
+    "id": "232018901",
+    "name": "HYUNDAI PLUTO",
+    "latitude": 38.40502,
+    "longitude": -123.75891,
+    "speed": 13,
+    "timestamp": 1679722775000
+  },
+  {
+    "id": "368073320",
+    "name": "APACHE",
+    "latitude": 37.79541,
+    "longitude": -122.53072,
+    "speed": 9.7,
+    "timestamp": 1679709175000
+  },
+  {
+    "id": "636015773",
+    "name": "KM SHANGHAI",
+    "latitude": 37.71983,
+    "longitude": -123.75877,
+    "speed": 10.5,
+    "timestamp": 1679700801000
+  },
+  {
+    "id": "352023000",
+    "name": "DIONE LEADER",
+    "latitude": 37.28988,
+    "longitude": -123.43876,
+    "speed": 13.9,
+    "timestamp": 1679695137000
+  },
+  {
+    "id": "636015657",
+    "name": "GRACIOUS ACE",
+    "latitude": 37.29076,
+    "longitude": -123.53254,
+    "speed": 15.3,
+    "timestamp": 1679693133000
+  },
+  {
+    "id": "371605000",
+    "name": "GALLEON",
+    "latitude": 38.14286,
+    "longitude": -123.75832,
+    "speed": 10.6,
+    "timestamp": 1679688507000
+  },
+  {
+    "id": "303031000",
+    "name": "POLAR ADVENTURE",
+    "latitude": 38.3712,
+    "longitude": -123.7581,
+    "speed": 15.5,
+    "timestamp": 1679685769000
+  },
+  {
+    "id": "367310240",
+    "name": "NOHO-LOA",
+    "latitude": 37.28762,
+    "longitude": -122.68374,
+    "speed": 7.4,
+    "timestamp": 1679680092000
+  },
+  {
+    "id": "564345000",
+    "name": "EVER LUCENT",
+    "latitude": 38.25255,
+    "longitude": -123.75733,
+    "speed": 12.8,
+    "timestamp": 1679672871000
+  },
+  {
+    "id": "432633000",
+    "name": "MICHIGAN HIGHWAY",
+    "latitude": 37.4318,
+    "longitude": -123.45499,
+    "speed": 15.5,
+    "timestamp": 1679662803000
+  },
+  {
+    "id": "338431561",
+    "name": "SD-2011",
+    "latitude": 37.37034,
+    "longitude": -122.77459,
+    "speed": 2.8,
+    "timestamp": 1679662786000
+  },
+  {
+    "id": "538007766",
+    "name": "KUDOS",
+    "latitude": 37.50518,
+    "longitude": -123.75861,
+    "speed": 12.7,
+    "timestamp": 1679635681000
+  },
+  {
+    "id": "215193000",
+    "name": "GOLD POINT",
+    "latitude": 37.28733,
+    "longitude": -123.60017,
+    "speed": 10,
+    "timestamp": 1679633641000
+  },
+  {
+    "id": "636021470",
+    "name": "MSC MARA",
+    "latitude": 37.55009,
+    "longitude": -123.75497,
+    "speed": 13.6,
+    "timestamp": 1679623890000
+  },
+  {
+    "id": "352135000",
+    "name": "EVER LOTUS",
+    "latitude": 37.70785,
+    "longitude": -123.75999,
+    "speed": 18.4,
+    "timestamp": 1679614854000
+  },
+  {
+    "id": "366999663",
+    "name": "CG HAWKSBILL",
+    "latitude": 37.76454,
+    "longitude": -122.53429,
+    "speed": 20.9,
+    "timestamp": 1679614494000
+  },
+  {
+    "id": "367625560",
+    "name": "HAYDEN BAY",
+    "latitude": 38.14636,
+    "longitude": -122.52938,
+    "speed": 5.8,
+    "timestamp": 1679613840000
+  },
+  {
+    "id": "477625700",
+    "name": "JIUYANG FORTUNE",
+    "latitude": 38.54113,
+    "longitude": -123.75675,
+    "speed": 15.1,
+    "timestamp": 1679607415000
+  },
+  {
+    "id": "357558000",
+    "name": "ZANDOLIE",
+    "latitude": 37.31755,
+    "longitude": -123.75647,
+    "speed": 10.1,
+    "timestamp": 1679604010000
+  },
+  {
+    "id": "338796000",
+    "name": "MATSONIA",
+    "latitude": 37.29114,
+    "longitude": -122.73065,
+    "speed": 21.1,
+    "timestamp": 1679601537000
+  },
+  {
+    "id": "369225000",
+    "name": "PALMETTO STATE",
+    "latitude": 37.29058,
+    "longitude": -123.22366,
+    "speed": 13.4,
+    "timestamp": 1679601501000
+  }
+]

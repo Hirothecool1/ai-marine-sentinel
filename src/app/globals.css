@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Oceanside Palette */
+  --color-ocean-deep: #0f172a;
+  --color-ocean-mid: #1e3a8a;
+  --color-ocean-light: #3b82f6;
+  --color-teal: #0d9488;
+  --color-cyan: #06b6d4;
+  --color-accent: #f59e0b; /* for gamification badges/points */
+  --color-white: #ffffff;
+  --color-gray-100: #f3f4f6;
+  --color-gray-800: #1f2937;
+
+  --background: var(--color-ocean-deep);
+  --foreground: var(--color-gray-100);
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+  /* Typography */
+  --font-primary: 'Outfit', sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: var(--foreground);
+  background: var(--background);
+  background-image: radial-gradient(circle at top right, var(--color-ocean-mid), transparent 50%),
+                    radial-gradient(circle at bottom left, var(--color-teal), transparent 50%);
+  background-attachment: fixed;
+  font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Utilities */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-cyan), var(--color-ocean-light));
+  color: var(--color-white);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(6, 182, 212, 0.4);
+}
+
+.heading-gradient {
+  background: linear-gradient(to right, var(--color-cyan), var(--color-white));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Custom Leaflet Whale Sighting Marker */
+.custom-whale-icon-container {
+  background: transparent;
+  border: none;
+}
+
+.custom-whale-marker {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid var(--color-cyan);
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.6);
+  background: var(--color-ocean-deep);
+  overflow: visible; /* to allow the pin to overflow */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.custom-whale-marker:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.9);
+}
+
+.custom-whale-marker img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.custom-whale-marker .marker-pin {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: var(--color-cyan);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: -1;
+}

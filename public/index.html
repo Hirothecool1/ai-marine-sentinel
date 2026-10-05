@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Predictive Marine Sentinel — AI Whale Avoidance Dashboard</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Leaflet CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  
+  <!-- Background Ambient Glows -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- App Wrapper -->
+  <div class="app-container">
+    
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-logo">
+        <div class="logo-icon">
+          <i data-lucide="shield-alert" class="icon-pulse"></i>
+        </div>
+        <div class="logo-text">
+          <h1>AI Marine Sentinel</h1>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="logo-subtitle">Save Willy Act — Predictive Whale-Avoidance System</span>
+            <span id="build-identifier" style="font-family: var(--font-mono); font-size: 9.5px; color: var(--text-secondary); background: rgba(255,255,255,0.06); padding: 1.5px 6px; border-radius: 4px; border: 1px solid var(--border-light); line-height: 1;">
+              Rev: Loading... | Asset: v1.1.4 | Model: v1.1.0
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-stats">
+        <div class="stat-badge tooltip" data-tooltip="Active predictive whale-alert zones">
+          <span class="stat-dot" id="danger-zones-dot"></span>
+          <span class="stat-label">Alert Zones:</span>
+          <span class="stat-value" id="count-danger-zones">0</span>
+        </div>
+        <div class="stat-badge tooltip" data-tooltip="Vessels currently tracked by AIS">
+          <span class="stat-dot" id="vessels-dot"></span>
+          <span class="stat-label">AIS Vessels:</span>
+          <span class="stat-value" id="count-vessels">0</span>
+        </div>
+        <div class="stat-badge tooltip" data-tooltip="Overall vessel compliance rate">
+          <span class="stat-dot" id="compliance-dot"></span>
+          <span class="stat-label">Compliance:</span>
+          <span class="stat-value text-secondary" id="rate-compliance">N/A</span>
+        </div>
+        <div class="stat-badge tooltip" data-tooltip="Estimated speed-related risk reduction: unavailable">
+          <span class="stat-dot" id="risk-reduction-dot"></span>
+          <span class="stat-label">Risk Reduction (RRR):</span>
+          <span class="stat-value text-secondary" id="risk-reduction">Unavailable</span>
+        </div>
+        <div class="stat-badge tooltip" id="rec-speed-badge" data-tooltip="Current speed recommendation in active alert zones">
+          <span class="stat-dot" id="rec-speed-dot"></span>
+          <span class="stat-label">Rec. Speed:</span>
+          <span class="stat-value text-secondary" id="rec-speed-value">N/A</span>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <button class="btn-report-sighting-header" id="btn-report-sighting">
+          <i data-lucide="camera"></i> Report Whale Sighting
+        </button>
+        <input type="file" id="report-sighting-file" accept="image/*" style="display: none;">
+
+        <div class="sim-clock-wrapper">
+          <i data-lucide="clock" class="clock-icon"></i>
+          <span id="sim-time">--:--:--</span>
+          <span class="sim-date" id="sim-date">Loading...</span>
+        </div>
+        <div class="clock-speed-controls">
+          <button class="btn-speed active" data-speed="1">1x</button>
+          <button class="btn-speed" data-speed="2">2x</button>
+          <button class="btn-speed" data-speed="5">5x</button>
+          <button class="btn-speed" data-speed="10">10x</button>
+          <button class="btn-pause" id="btn-pause-toggle">
+            <i data-lucide="pause" id="pause-icon"></i>
+          </button>
+        </div>
+        <button id="btn-mode-toggle" class="btn-secondary" style="margin-left: 12px; padding: 6px 12px; font-size: 11px; border-radius: 6px; display: flex; align-items: center; gap: 8px; cursor: pointer; border: 1px solid var(--border-light); background: rgba(6, 182, 212, 0.08); color: var(--color-cyan); font-weight: 600;">
+          <span class="mode-dot" style="width: 7px; height: 7px; border-radius: 50%; background: var(--color-cyan); box-shadow: 0 0 8px var(--color-cyan); display: inline-block;"></span>
+          <span class="mode-text">LIVE PRODUCTION</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Layout -->
+    <main class="app-layout">
+      
+      <!-- LEFT SIDEBAR: Drawer (Collapsible) -->
+      <aside class="sidebar sidebar-left glass-card" id="sidebar-left">
+        <button class="sidebar-close-btn" id="btn-close-sidebar-left"><i data-lucide="x"></i></button>
+        
+        <!-- Tab Content: Layers -->
+        <div class="sidebar-tab-content active" id="tab-content-layers">
+          <div class="sidebar-section">
+            <h2><i data-lucide="layers" class="sec-icon"></i> Layered Intelligence</h2>
+            <p class="section-desc">Fusing multi-source telemetry to predict whale locations.</p>
+            
+            <div class="layer-control-list">
+              <label class="layer-checkbox-container tooltip-right" data-tooltip="Real-time Automatic Identification System vessel tracking">
+                <input type="checkbox" id="layer-ais" checked>
+                <span class="checkmark"></span>
+                <span class="layer-label">
+                  <i data-lucide="ship" class="layer-icon text-blue"></i>
+                  Live Vessels
+                </span>
+                <span class="layer-badge badge-blue">AIS</span>
+              </label>
+
+              <label class="layer-checkbox-container tooltip-right" data-tooltip="Dynamic safety speed recommendation zones based on model indices">
+                <input type="checkbox" id="layer-risk-zones" checked>
+                <span class="checkmark"></span>
+                <span class="layer-label">
+                  <i data-lucide="alert-triangle" class="layer-icon text-red"></i>
+                  Collision-Risk Zones
+                </span>
+                <span class="layer-badge">Model</span>
+              </label>
+
+              <label class="layer-checkbox-container tooltip-right" data-tooltip="Simulated traffic lanes inside the San Francisco pilot area">
+                <input type="checkbox" id="layer-shipping-lanes" checked>
+                <span class="checkmark"></span>
+                <span class="layer-label">
+                  <i data-lucide="milestone" class="layer-icon text-cyan"></i>
+                  Shipping Lanes
+                </span>
+                <span class="layer-badge">Static</span>
+              </label>
+
+              <label class="layer-checkbox-container tooltip-right" data-tooltip="Recent user sightings from verified database uploads (under 12 hours old)">
+                <input type="checkbox" id="layer-telemetry" checked>
+                <span class="checkmark"></span>
+                <span class="layer-label">
+                  <i data-lucide="radio" class="layer-icon text-pink"></i>
+                  Recent User Reports
+                </span>
+                <span class="layer-badge badge-pink">Live</span>
+              </label>
+
+              <label class="layer-checkbox-container tooltip-right" data-tooltip="Predictive heuristic model mapping showing relative likelihood of whale presence">
+                <input type="checkbox" id="layer-likelihood">
+                <span class="checkmark"></span>
+                <span class="layer-label">
+                  <i data-lucide="sliders" class="layer-icon text-indigo"></i>
+                  Model Whale Likelihood
+                </span>
+                <span class="layer-badge">Model</span>
+              </label>
+
+              <label class="layer-checkbox-container tooltip-right" data-tooltip="Prey-favorable habitat suitability estimates based on GEE NOAA OISST sea surface temp">
+                <input type="checkbox" id="layer-chlorophyll">
+                <span class="checkmark"></span>
+                <span class="layer-label">
+                  <i data-lucide="grid-3x3" class="layer-icon text-orange"></i>
+                  Environmental Suitability
+                </span>
+                <span class="layer-badge badge-orange">GEE</span>
+              </label>
+
+              <label class="layer-checkbox-container tooltip-right" data-tooltip="Archived and aggregated historical whale sightings context from OBIS-SEAMAP">
+                <input type="checkbox" id="layer-sightings">
+                <span class="checkmark"></span>
+                <span class="layer-label">
+                  <i data-lucide="history" class="layer-icon text-purple"></i>
+                  Historical Whale Context
+                </span>
+                <span class="layer-badge">OBIS</span>
+              </label>
+
+              <label class="layer-checkbox-container tooltip-right" data-tooltip="Static depth contours and bathymetry slope context">
+                <input type="checkbox" id="layer-bathymetry" checked>
+                <span class="checkmark"></span>
+                <span class="layer-label">
+                  <i data-lucide="layers-3" class="layer-icon text-cyan"></i>
+                  Bathymetry
+                </span>
+                <span class="layer-badge">Static</span>
+              </label>
+
+              <label class="layer-checkbox-container tooltip-right" data-tooltip="Diagnostic view showing raw NOAA OISST sea surface temperature grids">
+                <input type="checkbox" id="layer-raw-grid">
+                <span class="checkmark"></span>
+                <span class="layer-label">
+                  <i data-lucide="settings" class="layer-icon text-slate"></i>
+                  Show Raw Environmental Grid
+                </span>
+                <span class="layer-badge">Raw</span>
+              </label>
+            </div>
+
+            <div class="map-legend-panel" style="margin-top: 16px; padding: 12px; background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 6px;">
+              <h3 style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; font-weight: 600;">
+                <i data-lucide="info" style="width: 12px; height: 12px;"></i> Scientific Map Legend
+              </h3>
+              <div style="display: grid; grid-template-columns: 1fr; gap: 8px; font-size: 10px; color: #cbd5e1;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #06b6d4;"></span>
+                  <span>Live vessels (Cyan Marker)</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; border: 2px solid #ef4444; background: rgba(239, 68, 68, 0.1);"></span>
+                  <span>Collision-Risk Zone (Red, R &ge; 0.55 + Active vessel)</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; border: 2px dashed #a855f7; background: transparent;"></span>
+                  <span>Elevated Ecological Suitability Area (No vessel active)</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #ec4899;"></span>
+                  <span>Recent User Sighting (Magenta Marker)</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="display: inline-block; width: 12px; height: 6px; background: #eab308; opacity: 0.25; border-radius: 2px;"></span>
+                  <span>Moderate environmental suitability grid (0.55 &le; P &lt; 0.70)</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="display: inline-block; width: 12px; height: 6px; background: #ea580c; opacity: 0.40; border-radius: 2px;"></span>
+                  <span>Elevated environmental suitability grid (P &ge; 0.70)</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #a78bfa; opacity: 0.50;"></span>
+                  <span>Historical whale context (Muted Purple, Zoom aggregated)</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; border: 2px dashed #4f46e5; background: transparent;"></span>
+                  <span>Model-estimated whale likelihood area</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="display: inline-block; width: 20px; height: 2px; border-bottom: 2px dashed rgba(96, 165, 250, 0.55);"></span>
+                  <span>Shipping lanes (Blue Dashed Lines)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-section border-top" style="margin-top: 12px; padding-top: 12px;">
+            <h2><i data-lucide="activity" class="sec-icon text-cyan"></i> Data Feeds Status</h2>
+            <p class="section-desc">Connection and sync status of real-time API integrations.</p>
+            <div id="data-feeds-status-list" class="data-feeds-status-list" style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
+              <!-- Populated dynamically via ui.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Content: Prediction Model -->
+        <div class="sidebar-tab-content" id="tab-content-prediction">
+          <div class="sidebar-section">
+            <h2><i data-lucide="sliders" class="sec-icon"></i> Prediction Model</h2>
+            <p class="section-desc">Tune the predictive forecasting sensitivity and speeds.</p>
+            
+            <div class="parameter-group">
+              <div class="parameter-header">
+                <label for="param-sensitivity">AI Sensitivity Threshold</label>
+                <span id="val-sensitivity" class="param-val">75%</span>
+              </div>
+              <input type="range" id="param-sensitivity" min="30" max="95" value="75" class="custom-slider">
+              <span class="parameter-subdesc">Higher levels generate larger alert zones.</span>
+            </div>
+
+            <div class="parameter-group">
+              <div class="parameter-header">
+                <label for="param-buffer">Trophic Buffer Margin</label>
+                <span id="val-buffer" class="param-val">1.2 nm</span>
+              </div>
+              <input type="range" id="param-buffer" min="5" max="30" value="12" class="custom-slider">
+              <span class="parameter-subdesc">Predictive envelope size for environmental suitability proxy.</span>
+            </div>
+
+            <div class="parameter-group">
+              <div class="parameter-header">
+                <label for="param-speed-limit">Dynamic Speed Limit</label>
+                <span id="val-speed-limit" class="param-val">10 kts</span>
+              </div>
+              <input type="range" id="param-speed-limit" min="8" max="15" value="10" class="custom-slider">
+              <span class="parameter-subdesc">Mandated safe threshold inside geofenced alert zones.</span>
+            </div>
+
+            <div class="engine-status-box glass-card-nested">
+              <div class="status-indicator">
+                <span class="status-pulse-green"></span>
+                <div>
+                  <span class="status-label">Heuristic Risk Scoring Core</span>
+                  <span class="status-desc">Active / Weighted environmental & sighting overlays</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Content: Citations & Sources -->
+        <div class="sidebar-tab-content" id="tab-content-sources">
+          <div class="sidebar-section">
+            <h2><i data-lucide="book-open" class="sec-icon"></i> Data Sources Registry</h2>
+            <p class="section-desc">Active telemetry layers and scientific reference data status.</p>
+            
+            <div id="sources-registry-list" style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+              <!-- Populated dynamically via ui.js -->
+            </div>
+            
+            <div style="margin-top: 15px; text-align: center;">
+              <button id="btn-run-audit" class="btn-primary" style="font-size: 11px; padding: 6px 12px; width: 100%; border-radius: 6px; display: flex; align-items: center; justify-content: center; gap: 6px; cursor: pointer; font-weight: 600;">
+                <i data-lucide="shield-check"></i> Run Real Data Audit
+              </button>
+              <div id="audit-result-display" style="margin-top: 8px; font-size: 10px; font-weight: 600; text-align: center; display: none; padding: 6px; border-radius: 4px; font-family: var(--font-mono);"></div>
+            </div>
+            
+            <div class="sources-text-box glass-card-nested" style="margin-top: 15px;">
+              <p class="sources-intro-p">
+                <strong>AI Marine Sentinel</strong> combines multi-source environmental and vessel tracking feeds to model and predict whale-vessel collision risk.
+              </p>
+            </div>
+          </div>
+
+          <div class="sidebar-section border-top" style="margin-top: 15px; padding-top: 15px;">
+            <h2><i data-lucide="clipboard-check" class="sec-icon text-green"></i> Live Data Readiness</h2>
+            <p class="section-desc">Critical telemetry checks for live operations.</p>
+            
+            <div id="readiness-checklist" style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px;">
+              <div class="loading-placeholder">Evaluating readiness...</div>
+            </div>
+          </div>
+
+          <div class="sidebar-section border-top" style="margin-top: 15px; padding-top: 15px;">
+            <h2><i data-lucide="activity" class="sec-icon text-cyan"></i> AIS Diagnostic Status</h2>
+            <p class="section-desc">Real-time status of the AIS live data stream.</p>
+            <div id="ais-diagnostic-status" class="glass-card-nested" style="margin-top: 10px; padding: 10px; border-radius: 6px; font-size: 11px; font-family: var(--font-mono); line-height: 1.4; display: flex; flex-direction: column; gap: 4px; color: var(--text-secondary);">
+              <div>AIS status: waiting</div>
+              <div>AIS backend: 0</div>
+              <div>AIS endpoint: 0</div>
+              <div>Frontend loaded: 0</div>
+              <div>Rendered markers: 0</div>
+              <div>Last AIS update: Never</div>
+            </div>
+          </div>
+
+          <div class="sidebar-section border-top" style="margin-top: 15px; padding-top: 15px;">
+            <h2><i data-lucide="help-circle" class="sec-icon text-cyan"></i> Troubleshooting Desk</h2>
+            <p class="section-desc">Real-time telemetry and mapping diagnostics.</p>
+            
+            <div id="troubleshooting-panel" class="glass-card-nested" style="margin-top: 10px; padding: 10px; border-radius: 6px; font-size: 11px; font-family: var(--font-mono); line-height: 1.4; max-height: 200px; overflow-y: auto;">
+              <span style="color: var(--text-secondary);">Select "Run Real Data Audit" or connect sources to run diagnostics.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Content: Sentinel Workflow -->
+        <div class="sidebar-tab-content" id="tab-content-workflow">
+          <div class="sidebar-section" style="max-height: calc(100vh - 120px); overflow-y: auto;">
+            <h2><i data-lucide="list-checks" class="sec-icon text-cyan"></i> Sentinel Workflow</h2>
+            <p class="section-desc">One-pager workflow process of AI Marine Sentinel.</p>
+            
+            <div id="workflow-steps-list" style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px;">
+              <div class="loading-placeholder">Loading workflow steps...</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- CENTER VIEWS: Full-Width 2D Marine Map -->
+      <section class="center-viewports">
+        
+        <!-- App Copy Banner & Top controls bar -->
+        <div class="viewport-header glass-card">
+          <span class="view-label-indicator"><i data-lucide="shield-check" class="text-cyan"></i> AI Avoidance Radar</span>
+          <div id="map-debug-status" style="font-size: 9px; color: var(--text-secondary); display: flex; gap: 12px; margin-left: auto; margin-right: 15px; font-family: var(--font-mono); align-items: center; background: rgba(0,0,0,0.2); padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.03);">
+            <!-- Populated dynamically -->
+          </div>
+          <div class="map-controls">
+            <button class="map-control-btn tooltip" id="map-zoom-in" data-tooltip="Zoom In"><i data-lucide="plus"></i></button>
+            <button class="map-control-btn tooltip" id="map-zoom-out" data-tooltip="Zoom Out"><i data-lucide="minus"></i></button>
+            <button class="map-control-btn tooltip" id="map-recenter" data-tooltip="Recenter Map"><i data-lucide="locate"></i></button>
+          </div>
+        </div>
+
+        <!-- Displays Container -->
+        <div class="viewport-panels-container" id="viewports-container" style="height: 100%;">
+          
+          <!-- 2D Marine Tactical Map (Risk Map) -->
+          <div class="viewport-panel panel-2d glass-card" id="panel-2d-view" style="width: 100%; height: 100%;">
+            <div class="viewport-title" style="display: flex; justify-content: space-between; align-items: center;">
+              <div style="display: flex; flex-direction: column; gap: 2px;">
+                <span class="title-main"><i data-lucide="compass" class="text-cyan"></i> Risk Map</span>
+                <span class="title-sub" id="selected-object-label">Select ship or whale for active tracking telemetry</span>
+              </div>
+              <div id="demo-banner" class="hidden" style="background: rgba(249, 115, 22, 0.15); border: 1px solid rgba(249, 115, 22, 0.3); color: #f97316; font-size: 10px; padding: 4px 8px; border-radius: 4px; font-weight: 700; letter-spacing: 0.05em; display: flex; align-items: center; gap: 6px;">
+                <span style="width: 6px; height: 6px; border-radius: 50%; background: #f97316; box-shadow: 0 0 6px #f97316;"></span> DEMO MODE — SIMULATED DATA
+              </div>
+              <div id="whale-missing-banner" class="hidden" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.25); color: #fbbf24; font-size: 10px; padding: 4px 8px; border-radius: 4px; font-weight: 600; display: flex; align-items: center; gap: 6px; margin-left: 8px;">
+                <span style="width: 6px; height: 6px; border-radius: 50%; background: #fbbf24; box-shadow: 0 0 6px #fbbf24; display: inline-block;"></span>
+                Whale detection partner feed not connected — using estimated whale-risk model.
+              </div>
+              <div id="ais-missing-banner" class="hidden" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.25); color: #fbbf24; font-size: 10px; padding: 4px 8px; border-radius: 4px; font-weight: 600; display: flex; align-items: center; gap: 6px; margin-left: 8px;">
+                <span style="width: 6px; height: 6px; border-radius: 50%; background: #fbbf24; box-shadow: 0 0 6px #fbbf24; display: inline-block;"></span>
+                Live AIS temporarily unavailable — displaying available real environmental layers.
+              </div>
+            </div>
+            
+            <div class="canvas-wrapper" style="position: relative; width: 100%; height: 100%;">
+              <div id="canvas-2d" style="width: 100%; height: 100%;"></div>
+              
+              <!-- Map Empty State Overlay -->
+              <div id="map-empty-state" class="glass-card-nested" style="position: absolute; top: 20px; left: 110px; z-index: 1000; width: 280px; padding: 12px; border-radius: 8px; border: 1px solid var(--border-light); background: rgba(15, 23, 42, 0.95); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5); display: flex; flex-direction: column; gap: 8px; text-align: left;">
+                <button id="btn-close-empty-state" style="position: absolute; top: 8px; right: 8px; background: transparent; border: none; color: var(--text-secondary); cursor: pointer; display: flex; align-items: center; justify-content: center; width: 16px; height: 16px;">
+                  <i data-lucide="x" style="width: 12px; height: 12px;"></i>
+                </button>
+                <div style="display: flex; flex-direction: column; gap: 4px;">
+                  <h3 style="color: var(--color-cyan); font-family: var(--font-display); font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 6px; margin: 0;">
+                    <i data-lucide="shield-alert" class="icon-pulse" style="color: var(--color-cyan); width: 14px; height: 14px;"></i>
+                    Real Data Mode status
+                  </h3>
+                  <p style="font-size: 10.5px; color: var(--text-secondary); line-height: 1.4; margin: 0; padding-right: 12px;">
+                    No live data is currently displayed because required sources are disconnected.
+                  </p>
+                </div>
+                <div id="map-empty-state-sources" style="display: flex; flex-direction: column; gap: 4px; text-align: left; font-size: 10px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 8px;">
+                  <!-- Dynamically populated statuses -->
+                </div>
+              </div>
+              
+              <!-- Floating Tool Dock -->
+              <div class="floating-tool-dock" id="tool-dock">
+                <button class="dock-btn" id="btn-dock-layers" title="Layered Intelligence">
+                  <i data-lucide="layers"></i>
+                  <span>Layers</span>
+                </button>
+                <button class="dock-btn" id="btn-dock-prediction" title="Prediction Model">
+                  <i data-lucide="sliders"></i>
+                  <span>Prediction</span>
+                </button>
+                <button class="dock-btn" id="btn-dock-vessels" title="Compliance Tracking">
+                  <i data-lucide="ship"></i>
+                  <span>Vessels</span>
+                </button>
+                <button class="dock-btn" id="btn-dock-3d" title="3D Depth Review">
+                  <i data-lucide="activity"></i>
+                  <span>3D View</span>
+                </button>
+                <button class="dock-btn" id="btn-dock-sources" title="Citations & Sources">
+                  <i data-lucide="book-open"></i>
+                  <span>Sources</span>
+                </button>
+                <button class="dock-btn" id="btn-dock-workflow" title="Sentinel Workflow">
+                  <i data-lucide="list-checks"></i>
+                  <span>Workflow</span>
+                </button>
+              </div>
+
+              <!-- Floating Active Alert Card -->
+              <div class="floating-alert-card glass-card hidden" id="active-alert-card">
+                <div class="alert-card-header">
+                  <span class="alert-dot pulse-amber"></span>
+                  <h4>ACTIVE WHALE ALERT</h4>
+                </div>
+                <div class="alert-card-body">
+                  <p class="alert-zone-name" id="alert-zone-name">Gulf of Farallones Sector</p>
+                  <p class="alert-speed-rec">Safe Speed Limit: <span id="alert-speed-value" class="text-amber font-bold">10 kts</span></p>
+                  <p class="alert-reason">Whales detected in area. Compliance tracking active.</p>
+                </div>
+              </div>
+
+              <!-- Legend Overlay -->
+              <div class="map-legend glass-card-nested">
+                <div class="legend-title">Risk Map Symbols</div>
+                <div class="legend-item"><span class="legend-color danger-zone-fill"></span> Whale Alert Zone</div>
+                <div class="legend-item"><span class="legend-color ship-vector"></span> Vessel AIS Track</div>
+                <div class="legend-item"><span class="legend-color whale-pulse"></span> Tagged Sentinel Whale</div>
+                <div class="legend-item"><span class="legend-color hydrophone-range"></span> Hydrophone Array (920Hz)</div>
+                <div class="legend-item"><span class="legend-color krill-density"></span> Prey-Habitat Proxy Index</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- RIGHT SIDEBAR: Drawer (Collapsible) -->
+      <aside class="sidebar sidebar-right glass-card" id="sidebar-right">
+        <button class="sidebar-close-btn" id="btn-close-sidebar-right"><i data-lucide="x"></i></button>
+        
+        <!-- Tab Content: Compliance Tracking -->
+        <div class="sidebar-tab-content active" id="tab-content-vessels">
+          <div class="sidebar-section">
+            <div class="section-header-tabs">
+              <button class="btn-sec-tab active" id="tab-vessels">
+                <i data-lucide="ship"></i> Vessels
+              </button>
+              <button class="btn-sec-tab" id="tab-citations">
+                <i data-lucide="file-signature"></i> Alerts <span class="badge-count" id="citations-badge">0</span>
+              </button>
+            </div>
+            <p class="section-desc">Compliance tracking inside active whale alert zones.</p>
+            
+            <div class="vessel-filters" style="display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 10px; padding: 4px 0;">
+              <button class="btn-filter active" data-filter="all" style="font-size: 10px; padding: 3px 6px; border-radius: 4px; border: 1px solid var(--border-light); background: rgba(255,255,255,0.05); color: var(--text-primary); cursor: pointer; font-weight: 500;">All</button>
+              <button class="btn-filter" data-filter="Cargo Vessel" style="font-size: 10px; padding: 3px 6px; border-radius: 4px; border: 1px solid var(--border-light); background: transparent; color: var(--text-secondary); cursor: pointer; font-weight: 500;">Cargo</button>
+              <button class="btn-filter" data-filter="Tanker" style="font-size: 10px; padding: 3px 6px; border-radius: 4px; border: 1px solid var(--border-light); background: transparent; color: var(--text-secondary); cursor: pointer; font-weight: 500;">Tanker</button>
+              <button class="btn-filter" data-filter="Passenger" style="font-size: 10px; padding: 3px 6px; border-radius: 4px; border: 1px solid var(--border-light); background: transparent; color: var(--text-secondary); cursor: pointer; font-weight: 500;">Passenger</button>
+              <button class="btn-filter" data-filter="Fishing" style="font-size: 10px; padding: 3px 6px; border-radius: 4px; border: 1px solid var(--border-light); background: transparent; color: var(--text-secondary); cursor: pointer; font-weight: 500;">Fishing</button>
+              <button class="btn-filter" data-filter="High-Speed" style="font-size: 10px; padding: 3px 6px; border-radius: 4px; border: 1px solid var(--border-light); background: transparent; color: var(--text-secondary); cursor: pointer; font-weight: 500;">High-Speed</button>
+              <button class="btn-filter" data-filter="Unknown" style="font-size: 10px; padding: 3px 6px; border-radius: 4px; border: 1px solid var(--border-light); background: transparent; color: var(--text-secondary); cursor: pointer; font-weight: 500;">Unknown</button>
+            </div>
+
+            <div class="vessel-compliance-list" id="vessel-list">
+              <!-- Dynamically populated via JS -->
+              <div class="loading-placeholder">Tracking AIS signals...</div>
+            </div>
+
+            <div class="citation-log-list hidden" id="citations-list">
+              <div class="loading-placeholder">No compliance alerts logged.</div>
+            </div>
+          </div>
+
+          <!-- Section 2: Predictive Foraging Indicators -->
+          <div class="sidebar-section border-top">
+            <h2><i data-lucide="activity-square" class="sec-icon"></i> Foraging & Depth Telemetry</h2>
+            <p class="section-desc">Analyzing whale dive depths & prey encounters.</p>
+            
+            <div class="whale-urgency-list" id="whale-urgency-list">
+              <!-- Dynamically populated via JS -->
+              <div class="loading-placeholder">Analyzing telemetry...</div>
+            </div>
+          </div>
+
+          <!-- Section 3: Course Coordination logs -->
+          <div class="sidebar-section border-top flex-col-grow">
+            <div class="flex-row-between">
+              <h2><i data-lucide="bot-message" class="sec-icon"></i> Prediction Model Log</h2>
+              <span class="feed-pulse text-cyan">Active</span>
+            </div>
+            <p class="section-desc">Course coordination logs between Sentinel-AI & bridge officers.</p>
+            
+            <div class="agent-chat-feed" id="agent-negotiations-feed">
+              <!-- Chat history populated dynamically -->
+              <div class="loading-placeholder">Connecting coordinators...</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+    </main>
+  </div>
+
+  <!-- COMPLIANCE WARNING DIALOG -->
+  <div class="modal-overlay" id="citation-modal">
+    <div class="modal-card glass-card">
+      <button class="modal-close-btn" id="btn-close-modal"><i data-lucide="x"></i></button>
+      
+      <div class="citation-header">
+        <div class="uscg-crest">
+          <i data-lucide="shield-alert"></i>
+        </div>
+        <div class="citation-title">
+          <h2>UNITED STATES COAST GUARD</h2>
+          <h3>Vessel Traffic Service — Cetacean Protection Desk</h3>
+          <span class="citation-legal">AUTHORIZED UNDER THE SAVE WILLY ACT (COMPLIANCE AMENDMENT)</span>
+        </div>
+      </div>
+      
+      <hr class="citation-divider">
+
+      <div class="citation-body">
+        <div class="citation-status-badge" id="cite-status-badge">POTENTIAL VIOLATION: REVIEW FLAGGED</div>
+        
+        <table class="citation-table">
+          <tr>
+            <th>ADVISORY ID:</th>
+            <td id="cite-id" class="monospace">USCG-2026-8942-A</td>
+            <th>DATE/TIME (UTC):</th>
+            <td id="cite-timestamp" class="monospace">2026-05-25 18:42:01</td>
+          </tr>
+          <tr>
+            <th>VESSEL NAME:</th>
+            <td id="cite-vessel-name" class="vessel-highlight">PACIFIC TITAN</td>
+            <th>REGISTRY (IMO):</th>
+            <td id="cite-vessel-imo" class="monospace">IMO 9823472</td>
+          </tr>
+          <tr>
+            <th>VESSEL TYPE:</th>
+            <td id="cite-vessel-type">Container Ship (360m)</td>
+            <th>VESSEL FLAG:</th>
+            <td id="cite-vessel-flag">Panama (PA)</td>
+          </tr>
+          <tr>
+            <th>TRACKED REGION:</th>
+            <td id="cite-coordinates" class="monospace">37.812° N, 122.589° W</td>
+            <th>ZONE REGISTRATION:</th>
+            <td id="cite-zone-id" class="monospace">DDZ-04 (FARALLONES CORRIDOR)</td>
+          </tr>
+          <tr>
+            <th>DETECTED SPEED:</th>
+            <td id="cite-speed" class="text-red monospace font-bold">14.6 Knots</td>
+            <th>RECOMMENDED SPEED:</th>
+            <td id="cite-mandated-speed" class="monospace">10.0 Knots Max</td>
+          </tr>
+          <tr>
+            <th>STRIKE MORTALITY RISK:</th>
+            <td id="cite-risk-factor" class="text-red font-bold">+145% Lethality Increase</td>
+            <th>PREY OVERLAP INDEX:</th>
+            <td id="cite-krill-overlap">Pending calculation</td>
+          </tr>
+        </table>
+ 
+        <!-- Small Chart inside ticket -->
+        <div class="citation-chart-container">
+          <div class="citation-chart-title">Speed Log Analysis (20-Minute Trajectory)</div>
+          <div class="citation-chart-canvas-wrapper">
+            <canvas id="citation-speed-chart"></canvas>
+          </div>
+        </div>
+ 
+        <div class="citation-alert-notice">
+          <i data-lucide="info" class="text-amber"></i>
+          <p>
+            <strong>COMPLIANCE / SPEED CORRIDOR ADVISORY NOTICE:</strong> Safe passage under 10 knots provides a 15–20% reduction in strike risk. Your vessel was tracked exceeding the active advisory speed inside a designated zone. This record has been flagged for compliance review. If active advisory speed recommendations are enabled, an advisory speed corridor recommendation is shown below for review.
+          </p>
+        </div>
+ 
+        <div class="citation-billing">
+          <div class="billing-left">
+            <div class="billing-status" id="cite-status-title">POTENTIAL COMPLIANCE REVIEW</div>
+            <div class="billing-desc" id="cite-status-desc">Flagged for speed exceedance in high-density sentinel foraging zone.</div>
+          </div>
+          <div class="billing-right">
+            <span class="fine-label" id="cite-fine-label">ADVISORY SPEED CORRIDOR RECOMMENDATION:</span>
+            <span class="fine-value" id="cite-fine-amount">N/A</span>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="citation-footer">
+        <div class="barcode-wrapper">
+          <div class="barcode"></div>
+          <span class="barcode-number">*USCG-VTS-SF-880D3A28*</span>
+        </div>
+        <div class="citation-actions" style="display: flex; gap: 8px; flex-wrap: wrap; width: 100%;">
+          <button class="btn-secondary" id="btn-citation-close" style="flex: 1; min-width: 80px;">Close</button>
+          <button class="btn-secondary" id="btn-citation-view-map" style="flex: 1.5; min-width: 130px; display: flex; align-items: center; justify-content: center; gap: 6px;">
+            <i data-lucide="map-pin" style="width: 14px; height: 14px;"></i> View on Map
+          </button>
+          <button class="btn-secondary" id="btn-citation-copy" style="flex: 1.5; min-width: 130px; display: flex; align-items: center; justify-content: center; gap: 6px;">
+            <i data-lucide="copy" style="width: 14px; height: 14px;"></i> Copy Details
+          </button>
+          <button class="btn-primary" id="btn-citation-print" style="flex: 2; min-width: 150px; display: flex; align-items: center; justify-content: center; gap: 6px;">
+            <i data-lucide="printer" style="width: 14px; height: 14px;"></i> Print Notice
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- 3D COLUMN PROFILE MODAL -->
+  <div class="modal-3d-overlay" id="modal-3d">
+    <div class="modal-3d-card glass-card">
+      <div class="viewport-title" style="display: flex; justify-content: space-between; align-items: center; padding: 12px; border-bottom: 1px solid var(--border-light);">
+        <span class="title-main" style="display: flex; align-items: center; gap: 8px;"><i data-lucide="activity" class="text-pink"></i> 3D Vertical Water Column Profile</span>
+        <button class="modal-3d-close-btn" id="btn-close-3d" style="background: transparent; border: none; color: var(--text-secondary); cursor: pointer; display: flex; align-items: center; justify-content: center; width: 24px; height: 24px;"><i data-lucide="x"></i></button>
+      </div>
+      <div class="canvas-wrapper" style="position: relative; width: 100%; height: calc(100% - 40px); background: #070b13;">
+        <canvas id="canvas-3d" style="display: block; width: 100%; height: 100%;"></canvas>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/exifr@7.1.3/dist/lite.umd.js"></script>
+  <script src="simulation.js?v=1.2.1" type="module"></script>
+  <script src="map2d.js?v=1.2.1" type="module"></script>
+  <script src="map3d.js?v=1.2.1" type="module"></script>
+  <script src="ui.js?v=1.2.1" type="module"></script>
+  <script src="app.js?v=1.2.1" type="module"></script>
+  
+</body>
+</html>
