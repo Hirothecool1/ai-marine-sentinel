@@ -1,6 +1,6 @@
 const WebSocket = require('ws');
 
-const apiKey = process.env.AISSTREAM_API_KEY;
+const apiKey = '67db6885432da7e0c3fc92a64cb073f822a2d2dc';
 
 function testBox(name, minLat, minLon, maxLat, maxLon, durationMs) {
   return new Promise((resolve) => {
@@ -42,7 +42,7 @@ function testBox(name, minLat, minLon, maxLat, maxLon, durationMs) {
       try {
         const rawString = messageData.toString();
         const parsed = JSON.parse(rawString);
-        
+
         // Count errors returned by the provider
         if (parsed.Error) {
           const errMsg = parsed.Error;
@@ -155,10 +155,10 @@ function testBox(name, minLat, minLon, maxLat, maxLon, durationMs) {
 async function runAll() {
   // Test Normal Box (120 seconds)
   const normalResults = await testBox('Normal Box', 37.3, -123.5, 38.3, -121.8, 120000);
-  
+
   // Test Wider Box (120 seconds)
   const widerResults = await testBox('Wider Box', 36.5, -124.5, 39.0, -121.0, 120000);
-  
+
   console.log('\n=============================================');
   console.log('All tests completed.');
   console.log('=============================================');
