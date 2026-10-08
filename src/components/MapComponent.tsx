@@ -45,6 +45,14 @@ export default function MapComponent({ data }: { data: any }) {
 
   if (!data) return <div>Loading map data...</div>;
 
+  const cartoKey = process.env.NEXT_PUBLIC_CARTO_API_KEY || process.env.CARTO_API_KEY || '';
+  const tileUrl = cartoKey 
+    ? `https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?api_key=${cartoKey}`
+    : 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}';
+  const attribution = cartoKey 
+    ? '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+    : '&copy; Esri &mdash; Esri, DeLorme, NAVTEQ';
+
   return (
     <MapContainer 
       center={center} 
@@ -53,8 +61,9 @@ export default function MapComponent({ data }: { data: any }) {
       scrollWheelZoom={true}
     >
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+        attribution={attribution}
+        url={tileUrl}
+        maxZoom={16}
       />
       
       {/* Render Whale Sightings */}

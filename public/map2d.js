@@ -31,13 +31,29 @@ export class Map2D {
       this.mapRendererStatus = 'loaded';
       this.baseMapTilesStatus = 'loaded';
 
-      // Add CartoDB Dark Matter tile layer (matches the dark neon style of the app)
-      const tileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        maxZoom: 19
+      // Configure tile layer: Use CARTO with API key if configured, otherwise default to Esri World Dark Gray Canvas
+      const cartoKey = (typeof window !== 'undefined' && (window.CARTO_API_KEY || (window.appConfig && window.appConfig.cartoApiKey))) || '';
+      const cartoUrl = cartoKey 
+        ? `https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?api_key=${cartoKey}`
+        : null;
+      const esriUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}';
+      
+      const primaryTileUrl = cartoUrl || esriUrl;
+      const attribution = cartoUrl
+        ? '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+        : '&copy; Esri &mdash; Esri, DeLorme, NAVTEQ';
+
+      const tileLayer = L.tileLayer(primaryTileUrl, {
+        maxZoom: 16,
+        attribution: attribution
       });
       
       tileLayer.on('tileerror', () => {
         this.baseMapTilesStatus = 'error';
+        if (tileLayer.getUrl() !== esriUrl) {
+          console.warn("[Map2D] CARTO tile layer error detected. Falling back to Esri Dark Gray Canvas basemap.");
+          tileLayer.setUrl(esriUrl);
+        }
       });
       
       tileLayer.addTo(this.map);
